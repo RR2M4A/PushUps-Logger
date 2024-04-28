@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="../../static/css/login_signup.css">
+</head>
+<body>
+
+    <div id="gradient-container">
+        <section class="gradient-message">
+            <h2>Registre seu progresso aqui...</h2>
+            <p>Você conseguirá!</p>
+        </section>
+    </div>
+
+    <div id="blank-container">
+        <div id="content-container">
+
+            <h1>Bem vindo!</h1>
+
+            {% block form %}{% endblock %}
+
+        </div>
+    </div>
+
+    {% block script %}{% endblock %}
+
+</body>
+</html>

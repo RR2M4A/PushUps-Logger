@@ -1,0 +1,39 @@
+{% extends "login_signup/base.html" %}
+
+{% block title %}Signup{% endblock %}
+
+{% block form %}
+<form class="main-form" method="post" action="/signup">
+                
+    <div id="form-message-div">
+        <h2>Faça seu registro!</h2>
+        <img src="../static/img/emoji-feliz.png">
+    </div>
+
+    <p id="error-message"></p>
+
+    <div class="input-div">
+        <label for="name">Nome</label>
+        <input id="name" name="name" type="text">
+    </div>
+
+    <div class="input-div">
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="text">
+    </div>
+
+    <div class="input-div">
+        <label for="password">Senha</label>
+        <input id="password" name="password" type="password">
+    </div>
+
+    <button id="signup-bt" type="submit">Fazer signup</button>
+    <button id="login-bt" type="button">Fazer login</button>
+</form>
+{% endblock %}
+
+{% block script %}
+<script>
+
+</script>
+{% endblock %}
