@@ -28,7 +28,7 @@ body > div {
     height: 100%;
 }
 
-#gradient-container {
+#gradient_container {
     display: flex;
     align-items: center;
     flex-flow: column nowrap;
@@ -42,31 +42,31 @@ body > div {
     linear-gradient(315deg, rgba(45,0,107,.8), rgba(45,0,107,0) 70.71%);
 }
 
-.gradient-message {
+.gradient_message {
     margin: auto;
     width: 80%;
     font-weight: bold;
 }
 
-.gradient-message > h2 {
+.gradient_message > h2 {
     color: white;
     font-size: 4rem;
 }
 
-.gradient-message > p {
+.gradient_message > p {
     margin-top: 2rem;
     color: white;
     font-size: 2.4rem;
 }
 
-#blank-container {
+#blank_container {
     display: flex;
     flex-flow: column nowrap;
     flex-basis: 60%;
     margin: auto;
 }
 
-#content-container {
+#content_container {
     min-width: 270px;
     width: 60%;
     margin: auto;
@@ -79,7 +79,7 @@ h1 {
     margin-bottom: 2rem;
 }
 
-.main-form {
+.main_form {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -91,17 +91,17 @@ h1 {
     background-color: white;
 }
 
-#form-message-div {
+#form_message_div {
     display: flex;
     align-items: center;
     margin-left: auto;
 }
 
-#form-message-div h2 {
+#form_message_div h2 {
     font-size: 2rem;
 }
 
-#error-message {
+#error_message {
     visibility: hidden;
     width: 100%;
     padding-right: 3rem;
@@ -112,7 +112,7 @@ h1 {
     transform: translate(0, 15px);
 }
 
-.input-div {
+.input_div {
     position: relative;
     width: 100%;
     font-weight: bold;
@@ -155,26 +155,26 @@ button:first-of-type {
     margin: 4rem 0 1rem 0;
 }
 
-#login-bt {
+#login_bt {
     background-color: #179C4C;
 }
 
-#login-bt:hover {
+#login_bt:hover {
     top: -1px;
     background-color: #0d5f2e;
 }
 
-#signup-bt {
+#signup_bt {
     background-color: #173C9C;
 }
 
-#signup-bt:hover {
+#signup_bt:hover {
     top: -1px;
     background-color: #06236d;
 }
 
 @media (max-width: 769px) {
-    #gradient-container {
+    #gradient_container {
         position: fixed;
         left: -200px;
         height: 500px;
@@ -184,15 +184,15 @@ button:first-of-type {
         transform: rotate(45deg);
     }
 
-    #gradient-container * {
+    #gradient_container * {
         display: none;
     }
 
-    #blank-container {
+    #blank_container {
         flex-basis: 100%;
     }
 
-    #content-container {
+    #content_container {
         width: 70%;
     }
 }

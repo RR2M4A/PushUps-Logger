@@ -5,7 +5,7 @@ main = Blueprint("main", __name__)
 
 
 @main.route("/")
-def index():
+def home():
     return "Hello world"
 
 @main.route("/profile")

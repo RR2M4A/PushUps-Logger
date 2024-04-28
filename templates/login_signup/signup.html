@@ -3,32 +3,32 @@
 {% block title %}Signup{% endblock %}
 
 {% block form %}
-<form class="main-form" method="post" action="/signup">
+<form class="main_form" method="post" action="/signup">
                 
-    <div id="form-message-div">
+    <div id="form_message_div">
         <h2>Faça seu registro!</h2>
-        <img src="../static/img/emoji-feliz.png">
+        <img src="../static/img/emoji_feliz.png">
     </div>
 
-    <p id="error-message"></p>
+    <p id="error_message"></p>
 
-    <div class="input-div">
+    <div class="input_div">
         <label for="name">Nome</label>
         <input id="name" name="name" type="text">
     </div>
 
-    <div class="input-div">
-        <label for="email">E-mail</label>
+    <div class="input_div">
+        <label for="email">E_mail</label>
         <input id="email" name="email" type="text">
     </div>
 
-    <div class="input-div">
+    <div class="input_div">
         <label for="password">Senha</label>
         <input id="password" name="password" type="password">
     </div>
 
-    <button id="signup-bt" type="submit">Fazer signup</button>
-    <button id="login-bt" type="button">Fazer login</button>
+    <button id="signup_bt" type="submit">Fazer signup</button>
+    <button id="login_bt" type="button">Fazer login</button>
 </form>
 {% endblock %}
 
