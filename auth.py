@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, url_for, request, redirect
 from werkzeug.security import generate_password_hash, check_password_hash
-from models import Users
+from models import User
 from database import db
 
 
@@ -21,7 +21,7 @@ def login_post():
     inputed_email = request.form.get("email")
     inputed_password = request.form.get("password")
 
-    db_user = Users.query.filter_by(email=inputed_email).first()
+    db_user = User.query.filter_by(email=inputed_email).first()
 
     # Verificando se o usuário não existe no banco de dados ou se a senha está incorreta
     if not db_user or not check_password_hash(db_user.password, inputed_password):
@@ -45,14 +45,14 @@ def signup_post():
     inputed_email = request.form.get("email")
     inputed_password = request.form.get("password")
 
-    db_user = Users.query.filter_by(email=inputed_email).first()
+    db_user = User.query.filter_by(email=inputed_email).first()
 
     # Verificando se o usuário já existe no banco de dados
     if db_user:
         return render_template("login_signup/signup.html")
         
     # Criação do usuário
-    new_user = Users(email=inputed_email, password=generate_password_hash(inputed_password), name=inputed_name)
+    new_user = User(email=inputed_email, password=generate_password_hash(inputed_password), name=inputed_name)
     db.session.add(new_user)
     db.session.commit()
 

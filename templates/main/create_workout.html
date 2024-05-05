@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../../static/css/create_workout.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <div class="left_nav_content">
+                <h1>Push-Ups Logger</h1>
+                <a href="#" id="all_pushups">Todos os registros</a>
+                <a href="/profile" id="profile">Perfil</a>
+            </div>
+    
+            <div class="right_nav_content">
+                <a href="/new_workout" id="add_new_workout">Adicionar novo registro</a>
+                <a href="/logout" id="logout">Logout</a>
+            </div>
+        </ul>
+    </nav>
+
+    <main class="blank_container">
+        <form class="workout_form">
+            <h2>Adicione um novo exercício</h2>
+            <label for="pushups">Flexões:</label>
+            <input id="pushups" step="1" name="pushups">
+            
+            <label for="comment">Comentário:</label>
+            <input id="comment" name="comment" type="text">
+
+            <button id="submit_bt" type="submit">Registrar</button>
+        </form>
+    </main>
+
+    <script>
+
+        const pushups = document.getElementById("pushups");
+
+        pushups.addEventListener("change", function () {return check_value(pushups)});
+        pushups.addEventListener("keyup", function () {return check_value(pushups)});
+        pushups.addEventListener("keydown", function () {return check_value(pushups)});
+
+
+
+        function check_value(pushups) {
+
+            // Pegando o último caractere que o usuário digitou
+            let inputed_char = pushups.value.charAt(pushups.value.length - 1)
+            let valid_char = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+
+            // Verifica se o usuário está digitando caracteres válidos
+            if (! valid_char.includes(inputed_char)) {
+                pushups.value = pushups.value.slice(0, pushups.value.length - 1)
+            }
+        }
+    </script>
+
+</body>
+</html>
