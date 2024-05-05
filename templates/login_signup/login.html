@@ -29,7 +29,12 @@
 
 {% block script %}
 <script>
+    const signup_bt = document.getElementById("signup_bt");
+    signup_bt.addEventListener("click", go_to_signup);
 
+    function go_to_signup () {
+        window.location.href = "/signup"
+    }
 </script>
 {% endblock %}
 

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, url_for, request, redirect
+from flask import Blueprint, render_template, url_for, request, redirect, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import User
 from database import db
@@ -28,7 +28,8 @@ def login_post():
         return render_template("login_signup/login.html")
         
     # Com usuário e senha válidos, será enviado à página home
-    return redirect(url_for("main.home"))
+    session["current_user_email"] = inputed_email
+    return redirect(url_for("main.all_workouts"))
         
 #---------------------- SIGNUP ----------------------
 
@@ -62,4 +63,8 @@ def signup_post():
 
 @auth.route("/logout")
 def logout():
-    return "Logout page"
+    if not "current_user_email" in session:
+        return redirect(url_for("auth.login"))
+    
+    session.pop("current_user_email")
+    return redirect(url_for("auth.login"))

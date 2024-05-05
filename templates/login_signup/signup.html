@@ -34,6 +34,11 @@
 
 {% block script %}
 <script>
+    const login_bt = document.getElementById("login_bt");
+    login_bt.addEventListener("click", go_to_login);
 
+    function go_to_login() {
+        window.location.href = "/login"
+    }
 </script>
 {% endblock %}
