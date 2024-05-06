@@ -18,12 +18,13 @@ def login():
 @auth.route("/login", methods=["POST"])
 def login_post():
 
+    # Pegando os dados informados pelo usuário no formulário (método post)
     inputed_email = request.form.get("email")
     inputed_password = request.form.get("password")
 
     db_user = User.query.filter_by(email=inputed_email).first()
 
-    # Verificando se o usuário não existe no banco de dados ou se a senha está incorreta
+    # Verificando se o usuário existe no banco de dados ou se a senha está incorreta
     if not db_user or not check_password_hash(db_user.password, inputed_password):
         return render_template("login_signup/login.html")
         
@@ -42,6 +43,7 @@ def signup():
 @auth.route("/signup", methods=["POST"])
 def signup_post():
 
+    # Pegando os dados informados pelo usuário no formulário (método post)
     inputed_name = request.form.get("name")
     inputed_email = request.form.get("email")
     inputed_password = request.form.get("password")
@@ -52,11 +54,12 @@ def signup_post():
     if db_user:
         return render_template("login_signup/signup.html")
         
-    # Criação do usuário
+    # Criando o usuário, caso ele ainda não exista no banco de dados
     new_user = User(email=inputed_email, password=generate_password_hash(inputed_password), name=inputed_name)
     db.session.add(new_user)
     db.session.commit()
 
+    # Após a criação, redireciona para login
     return redirect(url_for("auth.login"))
 
 #---------------------- LOGOUT ----------------------

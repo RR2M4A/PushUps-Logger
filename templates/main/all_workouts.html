@@ -1,8 +1,33 @@
 {% extends "main/base.html" %}
 {% block title %}Todos os Registros{% endblock %}
 
+{% block css %}<link rel="stylesheet" href="../../static/css/all_workouts.css">{% endblock %}
+
 {% block content %}
-<h1>Você está em todos os workouts</h1>
+<main class="blank_container">
+    <h2>Veja tuas flexões aqui</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Número de Flexões</th>
+                <th>Data de Relização</th>
+                <th>Comentários</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for workout in workouts %}
+            <tr>
+                <td>{{ workout.pushups }}</td>
+                <td>{{ workout.date_posted.strftime('%d/%m/%y') }}</td>
+                <td>{{ workout.comment }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</main>
 {% endblock%}
 
 {% block script %}

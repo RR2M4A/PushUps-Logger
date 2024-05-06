@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+:root {
+    --general-border-radius: 10px;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    height: 100%;
+    width: 100%;
+    font-size: 62.5%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.blank_container {
+    height: calc(100% - 70px);
+    width: 100%;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 3rem;
+}
+
+table td, table th {
+    border: 1px solid white;
+    padding: 1rem;
+}
+
+th {
+    color: white;
+    background-color: rgba(29, 28, 28, 0.944);
+    font-size: 1.6rem;
+}
+
+td {
+    background-color: #e7e4e4;
+    font-size: 1.2rem;
+    font-weight: bold;
+}

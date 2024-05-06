@@ -1,6 +1,8 @@
 {% extends "main/base.html" %}
 {% block title %} Novo Exercício{% endblock %}
 
+{% block css %}<link rel="stylesheet" href="../../static/css/create_workout.css">{% endblock %}
+
 {% block content %}
 <main class="blank_container">
     <form class="workout_form" action="/new_workout" method="post">

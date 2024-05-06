@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+:root {
+    --general-border-radius: 10px;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    height: 100%;
+    width: 100%;
+    font-size: 62.5%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.navbar {
+    width: 100%;
+}
+
+.navbar ul {
+    display: flex;
+    background-color: rgb(168, 160, 160);
+    border-bottom: 1px solid black;
+    justify-content: space-between;
+    padding: 1rem 2rem 1rem 2rem;
+}
+
+.navbar ul div{
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.navbar ul div *{
+    margin: 0 0.5rem 0 0.5rem;
+    padding: 1rem;
+    border-radius: var(--general-border-radius);
+}
+
+a {
+    text-decoration: none;
+}
+
+#all_pushups, #profile {
+    color: rgb(255, 255, 255);
+    border: 2px solid;
+    background-color: black;
+}
+
+#add_new_workout {
+    color: rgb(5, 216, 212);
+    border: 2px solid rgb(5, 216, 212);
+    background-color: black;
+}
+
+#logout {
+    color: red;
+    border: 2px solid red;
+    background-color: black;
+}

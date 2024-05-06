@@ -6,7 +6,7 @@ class User(db.Model):
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
     name = db.Column(db.String(100))
-    workout = db.relationship("Workout", backref="author", lazy=True)
+    workouts = db.relationship("Workout", backref="author", lazy=True)
 
 
 class Workout(db.Model):
