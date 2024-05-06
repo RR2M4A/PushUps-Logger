@@ -22,6 +22,9 @@
                 <td>{{ workout.pushups }}</td>
                 <td>{{ workout.date_posted.strftime('%d/%m/%y') }}</td>
                 <td>{{ workout.comment }}</td>
+                <td><a 
+                    href="{{ url_for('main.delete_workout', workout_id=workout.id) }}"
+                    role="button">Deletar</a></td>
             </tr>
             {% endfor %}
         </tbody>

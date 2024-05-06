@@ -5,6 +5,7 @@ from auth import session
 
 main = Blueprint("main", __name__)
 
+# --------------------------------- WORKOUTS ----------------------------
 
 @main.route("/")
 @main.route("/all_workouts")
@@ -22,15 +23,7 @@ def all_workouts():
     # Passando as informações a serem carregadas no html como argumento do render_template
     return render_template("main/all_workouts.html", user=current_user, workouts=workouts)
 
-@main.route("/profile")
-def profile():
 
-    # Verifica se o usuário está logado ou não
-    if not "current_user_email" in session:
-        return redirect(url_for("auth.login"))
-    
-    
-    return "Profile Here"
 
 @main.route("/new_workout")
 def new_workout():
@@ -41,16 +34,26 @@ def new_workout():
 
     return render_template("main/create_workout.html")
 
+
+
 @main.route("/new_workout", methods=["POST"])
 def new_workout_post():
     
+    # Verifica se o usuário está logado ou não
+    if not "current_user_email" in session:
+        return redirect(url_for("auth.login"))
+
     # Pegando os dados informados pelo usuário no formulário (método post)
     inputed_pushups = request.form.get("pushups")
     inputed_comment = request.form.get("comment")
 
     # Tratando possível erro caso o usuário tente enviar palavras ao invés de 
-    # números no formulário, não guardando no banco de dados
-    if not isinstance(inputed_pushups, int) or inputed_pushups <= 0:
+    # números no formulário
+    try:
+        inputed_pushups = int(inputed_pushups)
+        if inputed_pushups <= 0:
+            raise ValueError
+    except ValueError:
         return render_template("main/create_workout.html")
 
     # Pegando a instância do usuário
@@ -64,3 +67,31 @@ def new_workout_post():
 
     return render_template("main/create_workout.html")
 
+
+
+@main.route("/all_workouts/<int:workout_id>/delete", methods=["GET", "POST"])
+def delete_workout(workout_id):
+
+    # Verifica se o usuário está logado ou não
+    if not "current_user_email" in session:
+        return redirect(url_for("auth.login"))
+
+    # Excluindo o workout da base de dados
+    workout = Workout.query.get_or_404(workout_id)
+    db.session.delete(workout)
+    db.session.commit()
+
+    # Retornando à página
+    return redirect(url_for("main.all_workouts"))
+
+# --------------------------------- PROFILE ----------------------------
+
+@main.route("/profile")
+def profile():
+
+    # Verifica se o usuário está logado ou não
+    if not "current_user_email" in session:
+        return redirect(url_for("auth.login"))
+    
+    
+    return "Profile Here"
