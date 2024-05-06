@@ -69,6 +69,41 @@ def new_workout_post():
 
 
 
+@main.route("/all_workouts/<int:workout_id>/edit", methods=["GET", "POST"])
+def edit_workout(workout_id):
+
+    workout = Workout.query.get_or_404(workout_id)
+
+    # Verifica se o usuário está logado ou não
+    if not "current_user_email" in session:
+        return redirect(url_for("auth.login"))
+
+    if request.method == "GET":
+        return render_template("main/edit_workout.html", workout=workout)
+    
+    elif request.method == "POST":
+        
+        # Pegando o exercício que estou querendo editar
+        inputed_pushups = request.form.get("pushups")
+        inputed_comment = request.form.get("comment")
+
+        # Tratando possibilidade de valores inválidos fornecidos pelo usuário
+        try:
+            inputed_pushups = int(inputed_pushups)
+            if inputed_pushups <= 0:
+                raise ValueError
+        except ValueError:
+            return render_template("main/edit_workout.html")
+        
+        # Fazendo a edição caso esteja tudo OK
+        workout.pushups = inputed_pushups
+        workout.comment = inputed_comment
+        db.session.commit()
+
+        return redirect(url_for("main.all_workouts"))
+    
+
+
 @main.route("/all_workouts/<int:workout_id>/delete", methods=["GET", "POST"])
 def delete_workout(workout_id):
 

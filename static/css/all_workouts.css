@@ -47,13 +47,13 @@ th {
     font-size: 1.6rem;
 }
 
-td:not(:last-child) {
+td:nth-child(-n+3) {
     background-color: #e7e4e4;
     font-size: 1.2rem;
     font-weight: bold;
 }
 
-table a {
+.delete_bt {
     font-size: 1.2rem;
     font-weight: bold;
     color: red;
@@ -63,6 +63,20 @@ table a {
     transition: all 200ms ease-in-out;
 }
 
-table a:hover {
+.delete_bt:hover {
     background-color: rgb(255, 221, 221);
+}
+
+.edit_bt {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgb(39, 110, 190);
+    border: 1px solid rgb(39, 110, 190);
+    border-radius: var(--general-border-radius);
+    padding: 0.8rem;
+    transition: all 200ms ease-in-out;
+}
+
+.edit_bt:hover {
+    background-color: rgb(190, 215, 236);
 }
