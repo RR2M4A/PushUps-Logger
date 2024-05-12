@@ -33,3 +33,13 @@ Ao rodar esse comando, aparecerá o seguinte:
 ![rodar](https://github.com/RR2M4A/PushUps-Logger/assets/135292465/832fb9e9-7360-487d-ba03-34dec3907080)
 
 Apenas copie a URL (indicado pela seta ⬅) e cole no navegador.
+
++ No VSCode:
+
+Apenas selecione o arquivo "init.py" e execute-o: 
+
+![executar](https://github.com/RR2M4A/PushUps-Logger/assets/135292465/c06dcc92-ce07-4984-b9bf-0639ee867964)
+
+A URL aparecerá no terminal. Copie-a e cole no navegador: 
+
+![rodar](https://github.com/RR2M4A/PushUps-Logger/assets/135292465/832fb9e9-7360-487d-ba03-34dec3907080)
