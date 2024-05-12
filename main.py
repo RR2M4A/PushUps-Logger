@@ -118,15 +118,3 @@ def delete_workout(workout_id):
 
     # Retornando à página
     return redirect(url_for("main.all_workouts"))
-
-# --------------------------------- PROFILE ----------------------------
-
-@main.route("/profile")
-def profile():
-
-    # Verifica se o usuário está logado ou não
-    if not "current_user_email" in session:
-        return redirect(url_for("auth.login"))
-    
-    
-    return "Profile Here"
