@@ -2,6 +2,8 @@
 
 Este projeto tem por finalidade aprimorar meus conhecimentos em programação, principalmente em relação à utilização do framework Flask (em python). Ele consiste no desenvolvimento de um site, em que o usuário poderá acompanhar quantas flexões ele realizou no dia, construindo um histórico ao longo do tempo. Este projeto contém as funções CRUD.
 
+> Status: Concluído ✔️
+
 ## Tecnologias e Recursos Utilizados
 
 + Python (framework Flask)
